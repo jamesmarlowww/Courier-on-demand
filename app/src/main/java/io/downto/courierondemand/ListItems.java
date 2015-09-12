@@ -1,6 +1,7 @@
 package io.downto.courierondemand;
 
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
@@ -8,8 +9,10 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -24,7 +27,7 @@ public class ListItems extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_items);
+        setContentView(R.layout.list_items);
 
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#03A9F4")));
         getSupportActionBar().setTitle("Courier on demand");
@@ -34,9 +37,9 @@ public class ListItems extends ActionBarActivity {
         window.setStatusBarColor(Color.parseColor("#0288D1"));
 
 
-        ListView listView = (ListView) findViewById(R.id.listFriends);
+        final ListView listView = (ListView) findViewById(R.id.listFriends);
 
-        ArrayList<Item> itemList = new ArrayList<>();
+        final ArrayList<Item> itemList = new ArrayList<>();
         itemList.add(new Item("123 Great South Road, Papakura", "AUT Manukau campus", "789", 1.2, 1,1));
         itemList.add(new Item("34 Ian Street, Takapuna", "9 Murray Street Albany", "222", 0.1, 2,6));
         itemList.add(new Item("123 Great South Road, Papakura", "AUT Manukau campus", "789", 1.2, 1,1));
@@ -47,6 +50,21 @@ public class ListItems extends ActionBarActivity {
 
         arrayAdapter = new ListItemsArrayAdapter(this, R.layout.row, itemList);
         listView.setAdapter(arrayAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parentAdapter, View view, int position, long id) {
+
+                Intent i = new Intent(getApplicationContext(), MoreDetail.class);
+
+//                Bundle bundle = new Bundle();
+//                i.putExtras(bundle);
+
+                startActivity(i);
+
+            }
+
+        });
+
 
 
     }
