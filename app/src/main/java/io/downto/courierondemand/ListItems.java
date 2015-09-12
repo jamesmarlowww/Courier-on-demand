@@ -15,6 +15,9 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -30,7 +33,7 @@ public class ListItems extends ActionBarActivity {
         setContentView(R.layout.list_items);
 
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#03A9F4")));
-        getSupportActionBar().setTitle("Courier on demand");
+        getSupportActionBar().setTitle("Delivery on demand");
         Window window = this.getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
@@ -64,7 +67,6 @@ public class ListItems extends ActionBarActivity {
             }
 
         });
-
 
 
     }

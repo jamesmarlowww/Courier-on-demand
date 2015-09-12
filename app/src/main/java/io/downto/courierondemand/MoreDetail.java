@@ -1,19 +1,27 @@
 package io.downto.courierondemand;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class MoreDetail extends ActionBarActivity {
@@ -33,14 +41,56 @@ public class MoreDetail extends ActionBarActivity {
 
 
         ArrayList<String> arrList = new ArrayList<>();
-        arrList.add("Courier: Hey mate 40 bux seems a bit cheap, would you take 50?");
-        arrList.add("Client: Ummm sure. As long as you deliver it now");
-        arrList.add("Courier: Okay great, I'll be at your house in 20 minutes with the lightbulbs");
+//        arrList.add("Courier: Hey mate 40 bux seems a bit cheap, would you take 50?");
+//        arrList.add("Client: Ummm sure. As long as you deliver it now");
+//        arrList.add("Courier: Okay great, I'll be at your house in 20 minutes with the lightbulbs");
+        arrList.add("50");
+        arrList.add("30");
+        arrList.add("40");
+
 
 
         ListView list = (ListView) findViewById(R.id.chatList);
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, arrList);
+        ArrayAdapter adapter = new ArrayAdapter(this, R.layout.chat_row, arrList);
         list.setAdapter(adapter);
+
+    }
+
+    public class ChatArrayAdapter extends ArrayAdapter {
+
+        private List<String> list;
+        private int resourceID;
+        private Context context;
+
+        public ChatArrayAdapter(Context context, int resourceID, List<String> list) {
+            super(context, resourceID, list);
+            this.list = list;
+            this.context = context;
+            this.resourceID = resourceID;
+        }
+
+
+        @Override
+        public View getView(final int pos, View convertView, ViewGroup parent) {
+            View rowView = convertView;
+
+            LayoutInflater inflater = ((Activity) context).getLayoutInflater();
+            rowView = inflater.inflate(resourceID, parent, false);
+
+            TextView num = (TextView) rowView.findViewById(R.id.num);
+            Button button = (Button) rowView.findViewById(R.id.button);
+
+            num.setText(list.get(pos).toString());
+
+            if(pos > list.size()) {
+                button.setVisibility(View.VISIBLE);
+            } else
+                button.setVisibility(View.INVISIBLE);
+
+            return rowView;
+
+        }
+
 
     }
 

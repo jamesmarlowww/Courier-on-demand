@@ -31,8 +31,6 @@ public class ListItemsArrayAdapter extends ArrayAdapter<Item> {
     }
 
 
-
-
     @Override
     public View getView(final int pos, View convertView, ViewGroup parent) {
         View rowView = convertView;
