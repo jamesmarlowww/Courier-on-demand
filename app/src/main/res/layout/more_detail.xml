@@ -19,8 +19,8 @@
         android:layout_height="wrap_content"
         android:layout_width="220dp"
         android:id="@+id/editText"
-        android:hint="message"
-        android:paddingLeft="2dp"
+        android:hint="amount"
+        android:paddingLeft="5dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"/>
     <Button

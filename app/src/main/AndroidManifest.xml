@@ -28,6 +28,14 @@
             android:name=".MoreDetail"
             android:label="@string/title_activity_more_detail" >
         </activity>
+        <activity
+            android:name=".MapActivity"
+            android:label="@string/title_activity_map" >
+        </activity>
+        <activity
+            android:name=".RateDriver"
+            android:label="@string/title_activity_rate_driver" >
+        </activity>
     </application>
 
 </manifest>

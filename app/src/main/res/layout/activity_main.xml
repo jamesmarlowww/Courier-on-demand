@@ -60,6 +60,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/signIn"
         android:text="Sign up"
+        android:onClick="signUpBtn"
         />
 
 </LinearLayout>

@@ -44,14 +44,14 @@ public class MoreDetail extends ActionBarActivity {
 //        arrList.add("Courier: Hey mate 40 bux seems a bit cheap, would you take 50?");
 //        arrList.add("Client: Ummm sure. As long as you deliver it now");
 //        arrList.add("Courier: Okay great, I'll be at your house in 20 minutes with the lightbulbs");
-        arrList.add("50");
-        arrList.add("30");
-        arrList.add("40");
+        arrList.add("Driver:   $50.00");
+        arrList.add("Client:   $30.00");
+        arrList.add("Driver:   $40.00");
 
 
 
         ListView list = (ListView) findViewById(R.id.chatList);
-        ArrayAdapter adapter = new ArrayAdapter(this, R.layout.chat_row, arrList);
+        ArrayAdapter adapter = new ChatArrayAdapter(this, R.layout.chat_row, arrList);
         list.setAdapter(adapter);
 
     }
@@ -78,11 +78,17 @@ public class MoreDetail extends ActionBarActivity {
             rowView = inflater.inflate(resourceID, parent, false);
 
             TextView num = (TextView) rowView.findViewById(R.id.num);
-            Button button = (Button) rowView.findViewById(R.id.button);
+            Button button = (Button) rowView.findViewById(R.id.accpet);
 
             num.setText(list.get(pos).toString());
 
-            if(pos > list.size()) {
+
+
+//            if(list.get(pos).toString().equals("Driver:  40"))
+//                button.setVisibility(View.VISIBLE);
+//            else
+//                button.setVisibility(View.INVISIBLE);
+            if(pos >= list.size()-1) {
                 button.setVisibility(View.VISIBLE);
             } else
                 button.setVisibility(View.INVISIBLE);
@@ -90,7 +96,6 @@ public class MoreDetail extends ActionBarActivity {
             return rowView;
 
         }
-
 
     }
 

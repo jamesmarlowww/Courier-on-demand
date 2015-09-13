@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:layout_height="100dp"
+    >
 
     <TextView
         android:id="@+id/num"
@@ -13,18 +14,26 @@
         android:textColor="#000000"
         android:gravity="center_vertical"
         android:paddingTop="8dp"
+        android:layout_marginTop="80dp"
+        android:layout_margin="5dp"
+        android:layout_gravity="center_vertical"
         android:paddingBottom="5dp"
         android:paddingLeft="5dp"/>
 
-    <View
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        ></View>
+    <!--<View-->
+        <!--android:layout_width="20dp"-->
+        <!--android:layout_height="20dp"-->
+        <!--></View>-->
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button"
-        android:text="Accept"/>
+        android:text="Accept"
+        android:layout_marginTop="80dp"
+        android:gravity="center_vertical"
+        android:layout_alignParentRight="true"
+        android:layout_margin="5dp"
+        android:id="@+id/accpet"/>
 
-</LinearLayout>
+
+</RelativeLayout>
